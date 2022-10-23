@@ -16,7 +16,7 @@ import { theme } from "./src/infrastructure/theme";
 import { RestaurantsScreen } from "./src/features/restaurants/screens/restaurants.screen";
 
 export default function App() {
-  
+
   const [oswaldLoaded] = useOswald({
     Oswald_400Regular,
   });
