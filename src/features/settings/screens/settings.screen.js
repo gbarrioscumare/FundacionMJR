@@ -19,10 +19,10 @@ export const SettingsScreen = ({ navigation }) => {
   const { onLogout, user } = useContext(AuthenticationContext);
   return (
     <SafeArea>
-      <AvatarContainer>
+      <AvatarContainer marginTop={"12%"}>
         <Avatar.Icon size={180} icon="account" backgroundColor="#FFB52E" />
         <Spacer position="top" size="large">
-          <Text variant="label">{user.email}</Text>
+          <Text variant="label" marginTop={"20%"}>{user.email}</Text>
         </Spacer>
       </AvatarContainer>
 

@@ -23,7 +23,7 @@ export const RegisterScreen = ({ navigation }) => {
   return (
     <AccountBackground>
       <AccountCover />
-      <Title>Registro</Title>
+      <Title>Registrarse</Title>
       <AccountContainer>
         <AuthInput
           label="E-mail"

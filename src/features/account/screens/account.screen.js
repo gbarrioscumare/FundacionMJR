@@ -36,7 +36,7 @@ export const AccountScreen = ({ navigation }) => {
           source={require("../../../../assets/logo.png")}
         />
       </AnimationWrapper>
-      <Title>Fundacion Maria Jose Reyes</Title>
+      <Title>Bienvenido/a a la Fundacion Maria Jose Reyes</Title>
       <AccountContainer>
         <AuthButton
           icon="lock-open-outline"

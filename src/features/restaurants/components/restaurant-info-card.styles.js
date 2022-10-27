@@ -8,6 +8,7 @@ export const Icon = styled.Image`
 
 export const RestaurantCard = styled(Card)`
   background-color: ${(props) => props.theme.colors.bg.primary};
+  font-size: ${(props) => props.theme.fontSizes.title};
 `;
 
 export const RestaurantCardCover = styled(Card.Cover)`
@@ -17,10 +18,12 @@ export const RestaurantCardCover = styled(Card.Cover)`
 
 export const Address = styled.Text`
   font-family: ${(props) => props.theme.fonts.body};
-  font-size: ${(props) => props.theme.fontSizes.caption};
+  font-size: ${(props) => props.theme.fontSizes.button};
 `;
 
 export const Info = styled.View`
+  font-family: ${(props) => props.theme.fonts.heading}
+  font-size: ${(props) => props.theme.fontSizes.title};
   padding: ${(props) => props.theme.space[3]};
 `;
 

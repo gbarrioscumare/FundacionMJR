@@ -21,7 +21,7 @@ export const LoginScreen = ({ navigation }) => {
   return (
     <AccountBackground>
       <AccountCover />
-      <Title>Ingrese</Title>
+      <Title>Ingrese su mail y su contraseña</Title>
       <AccountContainer>
         <AuthInput
           label="E-mail"
