@@ -5,6 +5,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { RestaurantsNavigator } from "./restaurants.navigator";
 import { SettingsNavigator } from "./settings.navigator";
 import { MapScreen } from "../../features/map/screens/map.screen";
+import Biblioteca from "../../features/biblioteca/screens/biblioteca.screen";
 
 import { RestaurantsContextProvider } from "../../services/restaurants/restaurants.context";
 import { LocationContextProvider } from "../../services/location/location.context";
@@ -39,7 +40,7 @@ export const AppNavigator = () => (
           }}
         >
           <Tab.Screen name="Cursos" component={RestaurantsNavigator} />
-          <Tab.Screen name="Biblioteca" component={MapScreen} />
+          <Tab.Screen name="Biblioteca" component={Biblioteca} />
           <Tab.Screen name="Opciones" component={SettingsNavigator} />
         </Tab.Navigator>
       </RestaurantsContextProvider>
