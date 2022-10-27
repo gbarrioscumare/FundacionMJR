@@ -20,7 +20,7 @@ export const SettingsScreen = ({ navigation }) => {
   return (
     <SafeArea>
       <AvatarContainer>
-        <Avatar.Icon size={180} icon="human" backgroundColor="#2182BD" />
+        <Avatar.Icon size={180} icon="account" backgroundColor="#FFB52E" />
         <Spacer position="top" size="large">
           <Text variant="label">{user.email}</Text>
         </Spacer>
@@ -28,13 +28,7 @@ export const SettingsScreen = ({ navigation }) => {
 
       <List.Section>
         <SettingsItem
-          title="Favourites"
-          description="View your favourites"
-          left={(props) => <List.Icon {...props} color="black" icon="heart" />}
-          onPress={() => navigation.navigate("Favourites")}
-        />
-        <SettingsItem
-          title="Logout"
+          title="Salir de la cuenta"
           left={(props) => <List.Icon {...props} color="black" icon="door" />}
           onPress={onLogout}
         />

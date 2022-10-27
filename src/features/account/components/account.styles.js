@@ -4,30 +4,34 @@ import { colors } from "../../../infrastructure/theme/colors";
 import { Text } from "../../../components/typography/text.component";
 
 export const AccountBackground = styled.ImageBackground.attrs({
-  source: require("../../../../assets/home_bg.jpg"),
+  source: require("../../../../assets/pareja1.png"),
 })`
   flex: 1;
   align-items: center;
   justify-content: center;
+  align-image: center-right;
+  width: 100%;
+  height: 100%;
+
 `;
 
 export const AccountCover = styled.View`
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 218, 145, 0.7);
 `;
 
 export const AccountContainer = styled.View`
-  background-color: rgba(255, 255, 255, 0.7);
-  padding: ${(props) => props.theme.space[4]};
-  margin-top: ${(props) => props.theme.space[2]};
+  background-color: rgba(255, 255, 255, 0.3);
+  padding: ${(props) => props.theme.space[3]};
+  margin-top: ${(props) => props.theme.space[3]};
 `;
 
 export const AuthButton = styled(Button).attrs({
-  color: colors.brand.primary,
+  color: "#FFB52E"
 })`
-  padding: ${(props) => props.theme.space[2]};
+  padding: ${(props) => props.theme.space[3]};
 `;
 
 export const AuthInput = styled(TextInput)`
@@ -35,7 +39,7 @@ export const AuthInput = styled(TextInput)`
 `;
 
 export const Title = styled(Text)`
-  font-size: 30px;
+  font-size: 35px;
 `;
 
 export const ErrorContainer = styled.View`
@@ -48,8 +52,8 @@ export const ErrorContainer = styled.View`
 
 export const AnimationWrapper = styled.View`
   width: 100%;
-  height: 40%;
+  height: 30%;
   position: absolute;
-  top: 30px;
+  top: 50px;
   padding: ${(props) => props.theme.space[2]};
 `;

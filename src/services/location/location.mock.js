@@ -21,7 +21,7 @@ export const locations = {
       },
     ],
   },
-  "san francisco": {
+  cursos: {
     results: [
       {
         geometry: {

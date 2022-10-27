@@ -37,7 +37,7 @@ export const AuthenticationContextProvider = ({ children }) => {
   const onRegister = (email, password, repeatedPassword) => {
     setIsLoading(true);
     if (password !== repeatedPassword) {
-      setError("Error: Passwords do not match");
+      setError("Error: Las contraseñas no conciden");
       return;
     }
     firebase

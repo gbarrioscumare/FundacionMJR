@@ -23,7 +23,7 @@ export const RegisterScreen = ({ navigation }) => {
   return (
     <AccountBackground>
       <AccountCover />
-      <Title>Meals To Go</Title>
+      <Title>Registro</Title>
       <AccountContainer>
         <AuthInput
           label="E-mail"
@@ -65,7 +65,7 @@ export const RegisterScreen = ({ navigation }) => {
               mode="contained"
               onPress={() => onRegister(email, password, repeatedPassword)}
             >
-              Register
+              Registrar
             </AuthButton>
           ) : (
             <ActivityIndicator animating={true} color={Colors.blue300} />
@@ -74,7 +74,7 @@ export const RegisterScreen = ({ navigation }) => {
       </AccountContainer>
       <Spacer size="large">
         <AuthButton mode="contained" onPress={() => navigation.goBack()}>
-          Back
+          Atras
         </AuthButton>
       </Spacer>
     </AccountBackground>
