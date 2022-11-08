@@ -13,11 +13,39 @@ import {
 import { Text } from "../../../components/typography/text.component";
 import { Spacer } from "../../../components/spacer/spacer.component";
 import { AuthenticationContext } from "../../../services/authentication/authentication.context";
+import { handleChange } from "../../../services/authentication/authentication.context";
+import "firebase/auth";
 
 export const LoginScreen = ({ navigation }) => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [values, setValues] = useState({
+    email: "",
+    pwd: ""
+})
+
   const { onLogin, error, isLoading } = useContext(AuthenticationContext);
+
+  function handleChange(text, eventName) {
+    setValues(prev => {
+        return {
+            ...prev,
+            [eventName]: text
+        }
+    })
+} 
+function Login() {
+
+  const { email, pwd } = values
+
+  firebase.auth().signInWithEmailAndPassword(email, pwd)
+      .then(() => {
+      })
+      .catch((error) => {
+          alert(error.message)
+          // ..
+      });
+}
+
+
   return (
     <AccountBackground>
       <AccountCover />
@@ -29,7 +57,7 @@ export const LoginScreen = ({ navigation }) => {
           textContentType="emailAddress"
           keyboardType="email-address"
           autoCapitalize="none"
-          onChangeText={(u) => setEmail(u)}
+          onChangeText={(text) => handleChange(text, "email")}
         />
         <Spacer size="large">
           <AuthInput
@@ -38,7 +66,7 @@ export const LoginScreen = ({ navigation }) => {
             textContentType="password"
             secureTextEntry
             autoCapitalize="none"
-            onChangeText={(p) => setPassword(p)}
+            onChangeText={(text) => handleChange({text, "pwd"})}
           />
         </Spacer>
         {error && (
