@@ -3,6 +3,7 @@ import React from "react";
 import { ThemeProvider } from "styled-components/native";
 import * as firebase from "firebase";
 
+
 import {
   useFonts as useOswald,
   Oswald_400Regular,
@@ -26,12 +27,12 @@ import { Navigation } from "./src/infrastructure/navigation";
 import { AuthenticationContextProvider } from "./src/services/authentication/authentication.context";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyB-LOHUqBUnkxpcMZM_hmgL5LvT6Oz-JlE",
-  authDomain: "fundacion-mjreyes-new.firebaseapp.com",
-  projectId: "fundacion-mjreyes-new",
-  storageBucket: "fundacion-mjreyes-new.appspot.com",
-  messagingSenderId: "84712429794",
-  appId: "1:84712429794:web:5d8a0680683ad6ddf466bb"
+  apiKey: "AIzaSyCz_f1IgcMlwTiczH_brzvjYcMZ12CSarw",
+  authDomain: "proyectomjr.firebaseapp.com",
+  projectId: "proyectomjr",
+  storageBucket: "proyectomjr.appspot.com",
+  messagingSenderId: "161941617094",
+  appId: "1:161941617094:web:4dfb731ceac887237ddac7"
 };
 
 if (!firebase.apps.length) {

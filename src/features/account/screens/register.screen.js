@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-
+import * as firebase from "firebase";
 import { ActivityIndicator, Colors } from "react-native-paper";
 
 import {
@@ -14,12 +14,17 @@ import {
 import { Text } from "../../../components/typography/text.component";
 import { Spacer } from "../../../components/spacer/spacer.component";
 import { AuthenticationContext } from "../../../services/authentication/authentication.context";
+import { handleChange } from "../../../services/authentication/authentication.context"
+import "firebase/auth";
+import "firebase/firestore";
 
 export const RegisterScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [repeatedPassword, setRepeatedPassword] = useState("");
   const { onRegister, isLoading, error } = useContext(AuthenticationContext);
+  const auth = firebase.auth;
+  const firestore = firebase.firestore;
   return (
     <AccountBackground>
       <AccountCover />
@@ -31,7 +36,7 @@ export const RegisterScreen = ({ navigation }) => {
           textContentType="emailAddress"
           keyboardType="email-address"
           autoCapitalize="none"
-          onChangeText={(u) => setEmail(u)}
+          onChangeText={text => handleChange(text, "email")}
         />
         <Spacer size="large">
           <AuthInput
@@ -40,7 +45,7 @@ export const RegisterScreen = ({ navigation }) => {
             textContentType="password"
             secureTextEntry
             autoCapitalize="none"
-            onChangeText={(p) => setPassword(p)}
+            onChangeText={text => handleChange(text, "password")}
           />
         </Spacer>
         <Spacer size="large">
@@ -50,7 +55,7 @@ export const RegisterScreen = ({ navigation }) => {
             textContentType="password"
             secureTextEntry
             autoCapitalize="none"
-            onChangeText={(p) => setRepeatedPassword(p)}
+            onChangeText={text => handleChange(text, "repeatedPassword")}
           />
         </Spacer>
         {error && (
