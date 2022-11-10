@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import { ActivityIndicator, Colors } from "react-native-paper";
+import { Text, View, StyleSheet } from "react-native"
 
 import {
   AccountBackground,
@@ -10,13 +11,28 @@ import {
   ErrorContainer,
   Title,
 } from "../components/account.styles";
-import { Text } from "../../../components/typography/text.component";
+
+import SignUpScreen from "./register.screen";
 import { Spacer } from "../../../components/spacer/spacer.component";
 import { AuthenticationContext } from "../../../services/authentication/authentication.context";
 import { handleChange } from "../../../services/authentication/authentication.context";
+import TextBox from "./TextBox";
+import Btn from "./Btn";
+import firebase from 'firebase/app';
 import "firebase/auth";
 
+const styles = StyleSheet.create({
+  view: {
+      flex: 1,
+      width: "100%",
+      justifyContent: "center",
+      alignItems: "center"
+  }
+})
+
 export const LoginScreen = ({ navigation }) => {
+  const auth = firebase.auth;
+  const firestore = firebase.firestore;
   const [values, setValues] = useState({
     email: "",
     pwd: ""
@@ -48,51 +64,20 @@ function Login() {
 
   return (
     <AccountBackground>
-      <AccountCover />
-      <Title>Ingrese su mail y su contraseña</Title>
-      <AccountContainer>
-        <AuthInput
-          label="E-mail"
-          value={email}
-          textContentType="emailAddress"
-          keyboardType="email-address"
-          autoCapitalize="none"
-          onChangeText={(text) => handleChange(text, "email")}
-        />
+      <View style={styles.view}>
+          <Text style={{ fontSize: 34, fontWeight: "800", marginBottom: 20 }}>Login</Text>
+          <TextBox placeholder="Email Address" onChangeText={text => handleChange(text, "email")} />
+          <TextBox placeholder="Password" onChangeText={text => handleChange(text, "pwd")} secureTextEntry={true} />
+          <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center", width: "92%", }}>
+              <Btn onClick={() => Login("Login")} title="Login" style={{ width: "48%" }} />
+              <Btn onClick={() => navigation.navigate("Register")} title="Registrar" style={{ width: "48%", backgroundColor: "#344869" }} />
+          </View>
+      </View>
         <Spacer size="large">
-          <AuthInput
-            label="Password"
-            value={password}
-            textContentType="password"
-            secureTextEntry
-            autoCapitalize="none"
-            onChangeText={(text) => handleChange({text, "pwd"})}
-          />
+          <AuthButton mode="contained" onPress={() => navigation.goBack()}>
+            Atras
+          </AuthButton>
         </Spacer>
-        {error && (
-          <ErrorContainer size="large">
-            <Text variant="error">{error}</Text>
-          </ErrorContainer>
-        )}
-        <Spacer size="large">
-          {!isLoading ? (
-            <AuthButton
-              icon="lock-open-outline"
-              mode="contained"
-              onPress={() => onLogin(email, password)}
-            >
-              Ingresar
-            </AuthButton>
-          ) : (
-            <ActivityIndicator animating={true} color={Colors.blue300} />
-          )}
-        </Spacer>
-      </AccountContainer>
-      <Spacer size="large">
-        <AuthButton mode="contained" onPress={() => navigation.goBack()}>
-          Atras
-        </AuthButton>
-      </Spacer>
     </AccountBackground>
   );
 };

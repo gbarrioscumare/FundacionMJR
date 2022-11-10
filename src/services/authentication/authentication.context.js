@@ -1,4 +1,5 @@
 import React, { useState, createContext } from "react";
+import { Text, View, StyleSheet } from "react-native"
 import * as firebase from "firebase";
 //import { getAuth, onAuthStateChanged } from "firebase/auth";
 import "firebase/auth";

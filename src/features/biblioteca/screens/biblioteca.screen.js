@@ -13,7 +13,7 @@ const Biblioteca = () => {
             flex: 1
         }}>
             <Text>Aqui ira el repositorio de los cursos en formato PDF</Text>
-        </View>         
+        </View>
     )
 }
 
